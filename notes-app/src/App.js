@@ -1,6 +1,7 @@
 // App.js
 import React from 'react';
 import NotesApp from './NotesApp'; // Import the NotesApp component
+import './App.css';
 
 function App() {
   return (

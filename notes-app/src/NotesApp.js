@@ -1,6 +1,7 @@
 // NotesApp.js
 import React from 'react';
 import Note from './Note';
+import './NotesApp.css'; // Import the CSS file`
 
 const NotesApp = () => {
   const [notes, setNotes] = React.useState(() => {
@@ -28,13 +29,13 @@ const NotesApp = () => {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
-  const saveNotes = () => {
+  const saveNotes = React.useCallback(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
-  };
+  }, [notes]);
 
   React.useEffect(() => {
     saveNotes();
-  }, [notes]);
+  }, [saveNotes]);
 
   return (
     <div className="notes-app">
