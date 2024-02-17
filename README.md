@@ -26,8 +26,19 @@ Once you have the app running, you can start creating notes:
 - To delete a note, click on the trash icon next to the note title.
 - Use the search bar at the top of the page to filter notes based on their content.
 
-## Code explanation
+## build and run
 
+### build
+```bash
+docker build -t note-app:v1 .
+```
+
+### Run
+```bash
+docker --rm run -p  3000:3000 -v ${PWD}:/app -e CHOKIDAR_USEPOLLING=true note-app:v1
+```
+
+## Code explanation
 
 ### `NotesApp.js` component
 
@@ -127,7 +138,7 @@ This structure allows the user to interact with the notes app, adding new notes,
 
 
 
-## `Note.js` component
+### `Note.js` component
 
 
 ```jsx
